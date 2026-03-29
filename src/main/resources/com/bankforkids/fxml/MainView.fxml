@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.bankforkids.controller.MainController">
+    <left>
+        <VBox styleClass="sidebar" spacing="20">
+            <Text text="💰 KIDBANK" styleClass="logo-text"/>
+            <Button text="Dashboard" styleClass="sidebar-btn, active"/>
+            <Button text="Tasks" styleClass="sidebar-btn"/>
+            <Button text="Savings Goals" styleClass="sidebar-btn"/>
+            <Button text="Transactions" styleClass="sidebar-btn"/>
+        </VBox>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="main-content">
+            <VBox spacing="30">
+                <padding>
+                    <Insets top="40" right="40" bottom="40" left="40"/>
+                </padding>
+
+                <!-- Header -->
+                <HBox alignment="CENTER_LEFT">
+                    <VBox>
+                        <Label text="Good Morning, Super Kid!" styleClass="welcome-label"/>
+                        <Label text="Let's manage your money today!" styleClass="subtitle-label"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Cards -->
+                <HBox spacing="20">
+                    <VBox styleClass="card, primary-card" HBox.hgrow="ALWAYS">
+                        <Label text="Current Balance" styleClass="card-title"/>
+                        <Label fx:id="balanceLabel" text="$0.00" styleClass="card-value"/>
+                    </VBox>
+                    <VBox styleClass="card, secondary-card" HBox.hgrow="ALWAYS">
+                        <Label text="Total Savings" styleClass="card-title"/>
+                        <Label fx:id="savingsLabel" text="$0.00" styleClass="card-value"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Tasks and Goals -->
+                <HBox spacing="40">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Available Tasks" styleClass="section-title"/>
+                        <VBox fx:id="tasksContainer" spacing="15" styleClass="section-box"/>
+                    </VBox>
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="My Savings Goals" styleClass="section-title"/>
+                        <VBox fx:id="goalsContainer" spacing="15" styleClass="section-box"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Transactions -->
+                <VBox>
+                    <Label text="Recent Transactions" styleClass="section-title"/>
+                    <ListView fx:id="transactionListView" styleClass="transaction-list" prefHeight="200"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
